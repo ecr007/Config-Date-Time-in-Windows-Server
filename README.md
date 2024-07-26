@@ -48,5 +48,16 @@ w32tm stop
 w32tm start
 ```
 
+## 4 - Checking with python
+
+```python
+import ntplib
+from time import ctime
+
+ntp_client = ntplib.NTPClient()
+response = ntp_client.request('time.windows.com')
+print(ctime(response.tx_time))
+```
+
 Source: https://chatgpt.com/share/40139b1f-8354-40a0-82f3-8a88624df219
 
